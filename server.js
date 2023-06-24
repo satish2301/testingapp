@@ -6,7 +6,6 @@ const PORT = 4000;
 app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "./views"));
-hbs.registerPartials(path.join(__dirname, "./views/partials"));
 app.use(express.static(path.join(__dirname, "./public")));
 
 app.get("/", (req, res) => {
