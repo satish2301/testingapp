@@ -1,0 +1,361 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dashboard</title>
+       
+        {{!-- <meta http-equiv="Content-Security-Policy" content="font-src 'self' https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2 https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.ttf https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff"> --}}
+
+      
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    </head>
+    <script>
+        function hardReloadPage() {
+            location.href = location.href;
+
+        }
+        $(function () {
+            $("#datepicker").datepicker({
+                maxDate: 0, // Set maximum date to today
+                dateFormat: "yy/mm/dd", // Set the desired date format
+                showButtonPanel: false, // Hide the button panel
+                changeMonth: false, // Disable month dropdown
+                changeYear: false, // Disyear dropdown
+            });
+        });
+        $(function () {
+            $("#datepicker1").datepicker({
+                maxDate: 0, // Set maximum date to today
+                dateFormat: "yy/mm/dd", // Set the desired date format
+                showButtonPanel: false, // Hide the button panel
+                changeMonth: false, // Disable month dropdown
+                changeYear: false, // Dissable year dropdown
+            });
+        });
+        $(function () {
+            $(".datepicker2").datepicker({
+                maxDate: 0, // Set maximum date to today
+                dateFormat: "yy/mm/dd", // Set the desired date format
+                showButtonPanel: false, // Hide the button panel
+                changeMonth: false, // Disable month dropdown
+                changeYear: false, // Disable year dropdown
+            });
+        });
+    </script>
+    <style></style>
+    <body class="">
+        <div class="container-fluid border-bottom ">
+            <div class="container">
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <img src="./image/dmtlogo2.png" alt="logo" class="img-fluid" width="150"/>
+
+                    <div class="mt-3">
+                        <form method="GET" action="/Login">
+                            <button class="btn btn-outline-primary">Logout</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid ">
+            <div class="row mt-1">
+                <div class="col-lg-10 p-3 col-12 mx-auto border min-vh-100 shadow-lg">
+                    <div class="row p-1">
+                        <div class="col-lg-3 mb-3 col-md-4 col-12">
+
+                            <div class="d-flex">
+                                <form method="POST" action="/dashboad" class="w-100 mb-0 d-flex">
+                                    <select class="form-select rounded-start rounded-0" aria-label="Default select example" name="status" onchange="this.form.submit()">
+                                        <option selected disabled>Select a Follow-up</option>
+                                        <option value="busy">busy</option>
+                                        <option value="call back">call back</option>
+                                        <option value="not-interested">not-interested</option>
+                                        <option value="interested">interested</option>
+
+                                    </select>
+                                    <button class="btn btn-primary rounded-0 rounded-end" name="all">All</button>
+                                </form>
+
+                            </div>
+
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-12">
+                            <div class="input-group mb-3 shadow-lg">
+
+                                <form method="POST" action="/dashboad" class=" mb-0 d-flex w-100">
+                                    <span class="input-group-text rounded-0 rounded-start  bg-white" id="basic-addon1">
+
+                                        <i class="fa fa-search text-nowrap" aria-hidden="true"></i>
+                                    </span>
+                                    <input type="search" class="form-control  rounded-0 rounded-end" placeholder="Username" aria-label="Username" name="status" onchange="this.form.submit()">
+                                </form>
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row ">
+                                <form class="d-flex justify-content-between" method="POST" action="/dashboad">
+                                    <div class="col-md-5 col-5 me-1 ">
+                                        <div class="input-group mb-3 shadow-lg">
+                                            <span class="input-group-text bg-white" id="basic-addon1">
+
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                            <input type="text" class="form-control" placeholder="Date From" readonly id="datepicker1" name="fromDate"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5 col-4 me-1">
+                                        <div class="input-group mb-3 shadow-lg">
+                                            <span class="input-group-text bg-white" id="basic-addon1">
+
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                            <input type="text" class="form-control" placeholder="Date To" readonly id="datepicker" name="toDate"/>
+                                        </div>
+                                    </div>
+                                    <br/>
+                                    <br/>
+                                    <div class="col-md-2">
+                                        <button class="btn btn-primary" type="submit">Search</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                    <div class="row mt-1">
+
+                        <div class=" col-6">
+                            <nav aria-label="">
+                                <ul class="pagination p-0">
+                                    <li class="">
+                                        <form method="POST" action="/dashboad" class="w-100 mb-0">
+                                            <select class=" w-100 form-select  rounded" aria-label="Default select example" name="selectedOption" onchange="this.form.submit()" onchange="event.preventDefault();">
+                                                <option selected disabled>How many customer show</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+
+                                            </select>
+
+                                        </form>
+                                    </li>
+                                </ul>
+
+                            </nav>
+
+                        </div>
+                        <div class="col-6 text-end">
+
+                            <div class=" text-end">
+                                <a href="/download-excel" download="filename.xlsx">
+                                    <button class="btn btn-outline-info p-0 rounded"><img src="https://dmtgroup.in/admin/admin-assets/img/excel.png" width="50" height="37" alt=""/></button>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row overflow-auto">
+                        <div class="col-12 mt-3">
+                            <table class="table table-bordered">
+                                <thead class="table-light">
+                                    <th>
+                                        #
+                                    </th>
+                                    <th>
+                                        Prospect Details
+                                    </th>
+                                    <th>Date & Time</th>
+
+                                    <th>Service</th>
+                                    <th>Status</th>
+                                    <th>Remark
+                                    </th>
+                                    <th>Follow-up</th>
+                                    <th>Action</th>
+                                </thead>
+                                <tbody id="dataBody">
+                                    {{#if data}}
+                                        {{#each data}}
+
+                                            <tr>
+                                                <td class="create_index">{{ incrementIndex @index }}</td>
+                                                <td>
+                                                    <div class="">
+                                                        <span class="">
+                                                            <i class="fa fa-user-circle-o" style="font-size:14px;color:blue"></i>
+                                                            {{ this.name }}</span>
+                                                    </div>
+                                                    <div>
+                                                        <a class="nav-link text-primary  text-nowrap " href="mailto:{{ this.email }}">
+                                                            <i class="fa fa-envelope  " style="font-size:14px;color:" rgb(126,175,216)"></i>
+                                                            {{ this.email }}</a>
+                                                    </div>
+                                                    <div>
+                                                        <a class="nav-link text-primary " href="tel:{{ this.mobile }}">
+                                                            <i class="fa fa-phone" style="font-size:14px;color:" rgb(126,175,216)"></i>
+                                                            {{ this.mobile }}</a>
+                                                    </div>
+                                                </td>
+                                                <td>{{ formatDateCreate this.createdAt }}</td>
+
+                                                <td>{{ this.service }}</td>
+
+                                                <td class="status-field ">
+
+                                                    <span class="display-status">{{ this.status }}</span>
+
+
+                                                    <select class="edit-status" style="display: none;">
+                                                        <option selected disabled>Select a status</option>
+                                                        <option value="Open">Open</option>
+                                                        <option value="Close">Close</option>
+
+                                                    </select>
+                                                </td>
+                                                <td class="updated-by-field">
+
+                                                    <span class="updated-by-field">{{ this.updated }}</span>
+
+
+                                                    <input class="edit-updated-by form-control" style="display: none;" value={{ this.updated }}>
+
+                                                </td>
+                                                <td class="follow-up-field">
+
+
+                                                    <span class="follow-up-field spanTag text-wrap  p-1 rounded text-black  fw-bold {{ getClassForFollow this.follow }} ">{{ this.follow }}</span>
+
+
+                                                    <br/>
+                                                    <br/>
+                                                    <span class="fw-bold follow-up-field">{{ formatDate this.followdate }}</span>
+
+                                                    <select class="edit-follow-up" style="display: none;">
+                                                        <option selected disabled>Select a status</option>
+                                                        <option value="busy">Busy</option>
+                                                        <option value="call back">Call Back</option>
+                                                        <option value="not-interested">Not-Interested</option>
+                                                        <option value="interested">Interested</option>
+                                                        <option value="not-reachable">Not-Reachable</option>
+                                                    </select>
+                                                    <br/>
+                                                    <input type="text" class="edit-follow-up-date datepicker2" value="{{ this.followDate }}" style="display: none;" placeholder="Date From" readonly/>
+                                                </td>
+
+                                                <td>
+
+
+                                                    <button class="save-btn btn" data-id="{{ this._id }}" style="display: none;">
+                                                        <i class="fa fa-save" style="font-size:20px;color:red"></i>
+                                                    </button>
+
+                                                    <button class="edit-btn btn" data-id="{{ this._id }}">
+                                                        <i class="fa fa-edit p-1 shadow-lg d-flex align-items-center text-center rounded" style="font-size:20px;color:white;background-color:red"></i>
+                                                    </button>
+
+                                                </td>
+
+                                            </tr>
+
+
+                                        {{/each}}
+                                    {{ else }}
+                                        <tr>
+                                            <td colspan="9">
+                                                <h3 class="text-center">Nothing to show....!</h3>
+                                            </td>
+                                        </tr>
+                                    {{/if}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+
+          
+            // button functionality
+            $(document).ready(function () { // edit button function
+                $(".edit-btn").click(function () {
+                    const userId = $(this).data("id");
+                    const $row = $(this).closest("tr");
+console.log($row);
+
+                    $row.find(".display-status").hide();
+                    $row.find(".edit-status").show();
+
+                    $row.find(".display-updated-by").hide();
+                    $row.find(".edit-updated-by").show();
+
+                    $row.find(".display-follow-up").hide();
+                    $row.find(".edit-follow-up").show();
+                    $row.find(".edit-follow-up-date").show();
+
+                    $row.find(".edit-btn").hide();
+                    $row.find(".save-btn").show();
+                });
+
+                // save button function
+                $(".save-btn").click(function () {
+                    const userId = $(this).data("id");
+
+                    const $row = $(this).closest("tr");
+
+                    const updatedData = {
+                        status: $row.find(".edit-status").val(),
+                        updated: $row.find(".edit-updated-by").val(),
+                        follow: $row.find(".edit-follow-up").val(),
+                        followdate: $row.find(".edit-follow-up-date").val()
+                    };
+                    //update functionality
+                    $.ajax({
+                        url: "/update/" + userId,
+                        type: "POST",
+                        data: updatedData,
+                        success: function (response) {
+
+                            window.location.reload();
+                            $row.find(".display-status").text(updatedData.status).show();
+                            $row.find(".edit-status").hide();
+
+                            $row.find(".display-updated-by").text(updatedData.updated).show();
+                            $row.find(".edit-updated-by").hide();
+
+                            $row.find(".display-follow-up").text(updatedData.follow).show();
+                            $row.find(".edit-follow-up").hide();
+                            $row.find("display-follow-up").text(updatedData.follow).show();
+                            $row.find(".edit-follow-up").hide();
+                            $row.find(".edit-follow-up-date").hide();
+                            $row.find(".edit-btn").show();
+                            $row.find(".save-btn").hide();
+                        },
+                        error: function (xhr, status, error) {
+                            console.error("Failed to update user", error);
+                        }
+
+                    });
+
+                });
+
+            })
+        </script>
+
+        <script src="./script.js"></script>
+        <script></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    </body>
+</html>

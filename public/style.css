@@ -1,0 +1,92 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+body{
+    line-height: 1.8;
+    color: #222;
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+    /* background: linear-gradient(90deg, rgb(139, 197, 249), rgb(168, 255, 234)); */
+    /* background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); */
+    background: linear-gradient(-45deg, #4ab95e, #f9aa29, #ee3a3c, #4ab95e, #f9aa29, #ee3a3c, #4ab95e, #f9aa29, #ee3a3c);
+    background-size: 800% 800%;
+    animation: gradientBG 10s ease infinite;
+    display: grid;
+    place-items: center;
+}
+
+#captchaText{
+    color:#222;
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes gradientBG{
+    0% {
+        background-position: 0% 25%;
+        background-position-x: 0%;
+        background-position-y: 25%;
+    }
+    20% {
+        background-position: 25% 50%;
+    }
+    40% {
+        background-position: 50% 75%;
+    }
+    60% {
+        background-position: 75% 100%;
+    }
+    80% {
+        background-position: 100% 0%;
+    }
+    100% {
+        background-position: 0% 25%;
+    }
+}
+
+#captcha{
+    font-size: 26px;
+    color: blue;
+    border: 1px dotted yellowgreen;
+    padding: 10px 40px;
+    /* text-align: center; */
+    
+}
+.shake {
+    animation: shakeAnimation 0.9s infinite forwards;
+  }
+
+  @keyframes shakeAnimation {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(200px); }
+    75% { transform: translateX(-10px); }
+    100% { transform: translateX(10); }
+  }
+.toggle{
+    position : relative;
+    width : 60px;
+    height : 34px;
+    background-color: #4ab95e;
+}
